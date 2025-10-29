@@ -35,17 +35,17 @@ boxDiv.addEventListener("mouseout",()=>{
 //Q3
 var arr = [1,2,3,4,5];
 arr.push(6);
-console.log(arr);
+console.log("Q3 ",arr);
 //Q3 ends here
 
 //Q4
 arr.shift();
-console.log(arr);
+console.log("Q4",arr);
 //Q4 ends here
 
 //Q5
 arr.splice(3,0,7);
-console.log(arr);
+console.log("Q5",arr);
 //Q5 ends here
 
 //Q6
@@ -56,29 +56,23 @@ modnums = nums.map((i)=>{
     else
      return i;
 })
-console.log(modnums);
+console.log("Q6",modnums);
 
 //Q6 ends here
 
 //Q7
 var unsortedarr = [3,7,2,1,8];
 function sort(array){
-   var done = false;
-  while (!done) {
-    done = true;
-    for (var i = 1; i < array.length; i += 1) {
-      if (array[i - 1] > array[i]) {
-        done = false;
-        var tmp = array[i - 1];
-        array[i - 1] = array[i];
-        array[i] = tmp;
-      }
-    }
-  }
+  array.forEach((i)=>{
+     var left = array.filter((j)=>j<i);
+     var right = array.filter((j)=>j>i);
+     left.push(i);
+     array=left.concat(right);
+  })
   return array;
 }
-sort(unsortedarr);
-console.log(unsortedarr);
+var sortedarray=sort(unsortedarr);
+console.log("Q7",sortedarray);
 
 //Q8
 arr=[1,2,3,4,5,6];
@@ -86,11 +80,11 @@ var reversedArray = new Array();
 arr.forEach((i)=>{
     reversedArray.unshift(i);
 })
-console.log(reversedArray);
+console.log("Q8",reversedArray);
 
 //Q8 ends here
 
 //Q9
 arr=[1,2,3,4,5,6];
-console.log(arr.indexOf(4));
+console.log("Q9",arr.indexOf(4));
 //Q9 ends here
