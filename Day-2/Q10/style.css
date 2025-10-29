@@ -1,0 +1,25 @@
+table,tr,td,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    gap: 20px;
+    padding: 20px auto;
+}
+.data #add-btn{
+    text-decoration: none;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px;
+}

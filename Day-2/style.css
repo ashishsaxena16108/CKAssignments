@@ -1,0 +1,25 @@
+.q1 form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    gap: 20px;
+}
+.q1 form input{
+    padding: 10px;
+    width: 50%;
+}
+
+.green{
+    background-color: rgb(55, 219, 55);
+}
+
+.blue{
+    background-color: rgb(84, 208, 224);
+}
+
+.box{
+    height: 300px;
+    width: 300px;
+}
