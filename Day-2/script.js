@@ -33,19 +33,21 @@ boxDiv.addEventListener("mouseout",()=>{
 //Q2 ends here
 
 //Q3
-var arr = [1,2,3,4,5];
-arr.push(6);
-console.log("Q3 ",arr);
+var arr1 = [1,2,3,4,5];
+arr1.push(6);
+console.log("Q3 ",arr1);
 //Q3 ends here
 
 //Q4
-arr.shift();
-console.log("Q4",arr);
+var arr2 = [1,2,3,4,5];
+arr2.shift();
+console.log("Q4",arr2);
 //Q4 ends here
 
 //Q5
-arr.splice(3,0,7);
-console.log("Q5",arr);
+var arr3 = [1,2,3,4,5];
+arr3.splice(3,0,7);
+console.log("Q5",arr3);
 //Q5 ends here
 
 //Q6
@@ -75,7 +77,7 @@ var sortedarray=sort(unsortedarr);
 console.log("Q7",sortedarray);
 
 //Q8
-arr=[1,2,3,4,5,6];
+var arr=[1,2,3,4,5,6];
 var reversedArray = new Array();
 arr.forEach((i)=>{
     reversedArray.unshift(i);
