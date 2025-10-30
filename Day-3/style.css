@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
+div{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 190px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
