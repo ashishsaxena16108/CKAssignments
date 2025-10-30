@@ -3,8 +3,8 @@ function Product(name,price,category){
      this.price=price;
      this.category=category;
    }
-function max(...arr){
-    return arr.reduce((a,b)=>{return a.price>b.price?a:b});
+function max(){
+    return this.reduce((a,b)=>{return a.price>b.price?a:b});
 }
 function animationOut(div){
     div.style.transition = "width 0.5s ease, height 0.5s ease, font-size 0.5s ease";
@@ -24,7 +24,7 @@ function animationIn(div){
    arr.push(new Product("Eraser",19,"Stationary"));
    arr.push(new Product("Table",200,"Furniture"));
    arr.push(new Product("Chair",140,"Furniture"));
-   var maxProduct = max.apply(null,arr);
+   var maxProduct = max.apply(arr);
    Product.prototype.getDiscountedPrice=(percent)=>{
       return (this.price*percent)/100;
    }

@@ -63,7 +63,7 @@ console.log("Q6",modnums);
 //Q6 ends here
 
 //Q7
-var unsortedarr = [3,7,2,1,8];
+var unsortedarr = [9,3,7,2,1,8];
 function sort(array){
   array.forEach((i)=>{
      var left = array.filter((j)=>j<i);
