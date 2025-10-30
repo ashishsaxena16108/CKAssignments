@@ -31,13 +31,17 @@ function addDetails(){
         alert('Enter number between 0 and 100.');
         return;
     }
+    var totalMarks = englishMarks+hindiMarks+mathMarks+scienceMarks+sstMarks;
+    var averageMarks = totalMarks/5;
     var body = tableBody.innerHTML;
     tableBody.innerHTML=body+`<tr><td>${name}</td>
                                 <td>${englishMarks}</td>
                                 <td>${hindiMarks}</td>
                                 <td>${mathMarks}</td>
                                 <td>${scienceMarks}</td>
-                                <td>${sstMarks}</td></tr>`;
+                                <td>${sstMarks}</td>
+                                <td>${totalMarks}</td>
+                                <td>${averageMarks}</td></tr>`;
 }
 addButton.addEventListener('click',()=>{
     addDetails();
