@@ -31,7 +31,7 @@ function addDetails(){
         alert('Enter number between 0 and 100.');
         return;
     }
-    var totalMarks = englishMarks+hindiMarks+mathMarks+scienceMarks+sstMarks;
+    var totalMarks = parseInt(englishMarks)+parseInt(hindiMarks)+parseInt(mathMarks)+parseInt(scienceMarks)+parseInt(sstMarks);
     var averageMarks = totalMarks/5;
     var body = tableBody.innerHTML;
     tableBody.innerHTML=body+`<tr><td>${name}</td>
