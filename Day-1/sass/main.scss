@@ -69,6 +69,10 @@ body {
     font-weight: 700;
 }
 
+.header-3{
+    font-size: 16px;
+    font-weight: 500;
+}
 .text-center {
     text-align: center;
 }
@@ -159,6 +163,12 @@ body {
     gap: 10px;
     width: 660px;
 }
+.w-750{
+    width: 750px;
+}
+.align-start{
+    align-items: start;
+}
 .feature-btn{
     padding: 14px 32px;
     font-size: 16px;
@@ -233,6 +243,12 @@ footer{
 .green-text{
     color:$color-green;
 }
+.color-gray{
+    color: $text-neutral-gray;
+}
+.gap-8{
+    gap: 8px;
+}
 .stat-details{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -240,4 +256,18 @@ footer{
 }
 .gap-16{
     gap:20px;
+}
+.heading-l{
+    font-size: 64px;
+}
+.read-container{
+    @include flex-center-column;
+    gap: 32px;
+}
+.gap-32{
+  gap:32px;
+}
+.customer-flow{
+    @include flex-center;
+    gap: 32px;
 }
