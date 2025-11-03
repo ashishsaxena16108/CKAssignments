@@ -120,14 +120,13 @@ print(12,obj.b.c);
 const nestedArray = [[1,[2,[3,[4,5]]]]];
 const flattenArray=(nestedArray)=>{
     const res=[];
-    for(item of nestedArray){
-        if(Array.isArray(item)===true){
-           res.push(...flattenArray(item));
-        }
-        else{
-            res.push(item);
-        }
-    }
+    const [first,...rest] = nestedArray;
+    if(Array.isArray(first))
+      res.push(...flattenArray(first));
+    else
+      res.push(first);
+    if(rest.length!==0)
+       res.push(...flattenArray(rest));
     return res;
 }
 print(13,`Original Array:${JSON.stringify(nestedArray)} \nFlatten Array:${JSON.stringify(flattenArray(nestedArray))}`);
