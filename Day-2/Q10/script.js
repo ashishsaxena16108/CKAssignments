@@ -1,5 +1,28 @@
 var addButton = document.getElementById('add-btn');
 var tableBody = document.getElementById('table-body');
+var data;
+function addData(){
+   tableBody.innerHTML='';
+   data.forEach((d)=>{
+         tableBody.innerHTML+=`<tr><td>${d.name}</td>
+                                <td>${d.englishMarks}</td>
+                                <td>${d.hindiMarks}</td>
+                                <td>${d.mathMarks}</td>
+                                <td>${d.scienceMarks}</td>
+                                <td>${d.sstMarks}</td>
+                                <td>${d.totalMarks}</td>
+                                <td>${d.averageMarks}</td></tr>`
+       });
+}
+document.addEventListener("DOMContentLoaded",()=>{
+    data = JSON.parse(localStorage.getItem("data"));
+    if(!data || data.length===0){
+        localStorage.setItem("data",JSON.stringify([]));
+    }
+    else{
+        addData();
+    }
+})
 function addDetails(){
     var name = prompt("Enter your name");
     if(name === null || name===""){
@@ -33,15 +56,9 @@ function addDetails(){
     }
     var totalMarks = parseInt(englishMarks)+parseInt(hindiMarks)+parseInt(mathMarks)+parseInt(scienceMarks)+parseInt(sstMarks);
     var averageMarks = totalMarks/5;
-    var body = tableBody.innerHTML;
-    tableBody.innerHTML=body+`<tr><td>${name}</td>
-                                <td>${englishMarks}</td>
-                                <td>${hindiMarks}</td>
-                                <td>${mathMarks}</td>
-                                <td>${scienceMarks}</td>
-                                <td>${sstMarks}</td>
-                                <td>${totalMarks}</td>
-                                <td>${averageMarks}</td></tr>`;
+    data.push({name,englishMarks,hindiMarks,mathMarks,scienceMarks,sstMarks,totalMarks,averageMarks});
+    addData();
+    localStorage.setItem("data",JSON.stringify(data));
 }
 addButton.addEventListener('click',()=>{
     addDetails();

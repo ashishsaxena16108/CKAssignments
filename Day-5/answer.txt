@@ -1,0 +1,33 @@
+Q1. Find and terminate the top memory-consuming process on your system.
+Ans. kill $(ps aux --sort %mem | tail -n 1 | tr -s ' ' | cut -d " " -f 2)
+
+Q2. Create a user named devops and grant them sudo privileges.
+Ans. ashish-saxena@CK-ashishsaxena:~$ sudo adduser devops
+[sudo] password for ashish-saxena: 
+info: Adding user `devops' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `devops' (1002) ...
+info: Adding new user `devops' (1002) with group `devops (1002)' ...
+info: Creating home directory `/home/devops' ...
+info: Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for devops
+Enter the new value, or press ENTER for the default
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] y
+info: Adding new user `devops' to supplemental / extra groups `users' ...
+info: Adding user `devops' to group `users' ...
+ashish-saxena@CK-ashishsaxena:~$ sudo grant privileges devops
+sudo: grant: command not found
+ashish-saxena@CK-ashishsaxena:~$     sudo usermod -aG sudo devops
+Q4.List all active processes and save only those containing the word java into a file.
+Ans. ashish-saxena@CK-ashishsaxena:~$ ps aux | grep "java" | xargs > /home/ashish-saxena/Documents/test/alljavaprocesses.txt
+     ashish-saxena@CK-ashishsaxena:~$ head /home/ashish-saxena/Documents/test/alljavaprocesses.txt
+     ashish-+ 72817 0.0 0.0 9144 2304 pts/1 S+ 14:54 0:00 grep --color=auto java
+Q5.
