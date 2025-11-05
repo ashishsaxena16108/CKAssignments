@@ -1,0 +1,128 @@
+ashish-saxena@CK-ashishsaxena:~$ ssh-keygen -t ed25519 -C "ashish.saxena@cloudkeeper.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/ashish-saxena/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/ashish-saxena/.ssh/id_ed25519
+Your public key has been saved in /home/ashish-saxena/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:UTimhyGG9BEgcmjOXpjozoDAZsgBrxJXZAsEC8ipLaQ ashish.saxena@cloudkeeper.com
+The key's randomart image is:
++--[ED25519 256]--+
+|X=B+*.   ..      |
+|=@.=oo. +.       |
+|#.*.o. =..       |
+|E&..  o ..       |
+|X..    .S        |
+|+o               |
+|+                |
+| o               |
+|                 |
++----[SHA256]-----+
+
+
+
+aashish-saxena@CK-ashishsaxena:~$ gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations on this host? SSH
+? Upload your SSH public key to your GitHub account? /home/ashish-saxena/.ssh/id_ed25519.pub
+? Title for your SSH key: Assignment-key
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: BE5B-BD07
+Press Enter to open github.com in your browser... BE5B-BD07
+Opening in existing browser session.
+✓ Authentication complete.
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+✓ SSH key already existed on your GitHub account: /home/ashish-saxena/.ssh/id_ed25519.pub
+✓ Logged in as ashishsaxena16108
+
+
+
+ashish-saxena@CK-ashishsaxena:~$ gh repo create practice --public
+✓ Created repository ashishsaxena16108/practice on GitHub
+  https://github.com/ashishsaxena16108/practice
+ashish-saxena@CK-ashishsaxena:~$ cd ./Documents
+ashish-saxena@CK-ashishsaxena:~/Documents$ git clone git@github.com:ashishsaxena16108/practice.git
+Cloning into 'practice'...
+The authenticity of host 'github.com (20.207.73.82)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+warning: You appear to have cloned an empty repository.
+ashish-saxena@CK-ashishsaxena:~/Documents$ cd /practice
+bash: cd: /practice: No such file or directory
+ashish-saxena@CK-ashishsaxena:~/Documents$ cd ./practice
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ touch test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ echo "Hello World!" > test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ head test.txt
+Hello World!
+
+
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git branch f1
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git branch f2
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git branch -a
+  f1
+  f2
+* main
+  remotes/origin/main
+
+
+
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git checkout f1
+Switched to branch 'f1'
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ echo "Hello 1!" >> test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git add test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git commit
+[f1 e65e172] 	modified:   test.txt
+ 1 file changed, 1 insertion(+)
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git checkout f2
+Switched to branch 'f2'
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ echo "Hello 2!" >> test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git add test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git commit
+[f2 39379d0] 	modified:   test.txt
+ 1 file changed, 1 insertion(+)
+
+
+
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git merge
+Already up to date.
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git merge f1 f2
+Fast-forwarding to: f1
+Trying simple merge with f2
+Simple merge did not work, trying automatic merge.
+Auto-merging test.txt
+ERROR: content conflict in test.txt
+fatal: merge program failed
+Automatic merge failed; fix conflicts and then commit the result.
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git commit merge f1 f2
+fatal: cannot do a partial commit during a merge.
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git merge f1 f2
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ cat test.txt
+Hello World!
+<<<<<<< .merge_file_wdQcPr
+Hello 1!
+=======
+Hello 2!
+>>>>>>> .merge_file_ZXUSfp
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ nano test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ cat test.txt
+Hello World!
+
+
+Hello 2!
+
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git add test.txt
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git commit
+[main 3fa1426] Merge branches 'f1' and 'f2'
+ashish-saxena@CK-ashishsaxena:~/Documents/practice$ 
+
