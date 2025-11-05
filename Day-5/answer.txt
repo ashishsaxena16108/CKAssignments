@@ -2,32 +2,42 @@ Q1. Find and terminate the top memory-consuming process on your system.
 Ans. kill $(ps aux --sort %mem | tail -n 1 | tr -s ' ' | cut -d " " -f 2)
 
 Q2. Create a user named devops and grant them sudo privileges.
-Ans. ashish-saxena@CK-ashishsaxena:~$ sudo adduser devops
-[sudo] password for ashish-saxena: 
-info: Adding user `devops' ...
-info: Selecting UID/GID from range 1000 to 59999 ...
-info: Adding new group `devops' (1002) ...
-info: Adding new user `devops' (1002) with group `devops (1002)' ...
-info: Creating home directory `/home/devops' ...
-info: Copying files from `/etc/skel' ...
-New password: 
-Retype new password: 
-passwd: password updated successfully
-Changing the user information for devops
-Enter the new value, or press ENTER for the default
-	Full Name []: 
-	Room Number []: 
-	Work Phone []: 
-	Home Phone []: 
-	Other []: 
-Is the information correct? [Y/n] y
-info: Adding new user `devops' to supplemental / extra groups `users' ...
-info: Adding user `devops' to group `users' ...
-ashish-saxena@CK-ashishsaxena:~$ sudo grant privileges devops
-sudo: grant: command not found
-ashish-saxena@CK-ashishsaxena:~$     sudo usermod -aG sudo devops
+Ans. sudo adduser devops
+     sudo usermod -aG sudo devops
+
+Q3.Connect to a remote server, create a directory, and copy files into it using SCP.
+Ans.scp -r ./Documents/test sushant@10.1.210.41:./Downloads
+
 Q4.List all active processes and save only those containing the word java into a file.
-Ans. ashish-saxena@CK-ashishsaxena:~$ ps aux | grep "java" | xargs > /home/ashish-saxena/Documents/test/alljavaprocesses.txt
-     ashish-saxena@CK-ashishsaxena:~$ head /home/ashish-saxena/Documents/test/alljavaprocesses.txt
-     ashish-+ 72817 0.0 0.0 9144 2304 pts/1 S+ 14:54 0:00 grep --color=auto java
-Q5.
+Ans. ps aux | grep "java" | xargs > /home/ashish-saxena/Documents/test/alljavaprocesses.txt
+     head /home/ashish-saxena/Documents/test/alljavaprocesses.txt
+     Output:ashish-+ 72817 0.0 0.0 9144 2304 pts/1 S+ 14:54 0:00 grep --color=auto java
+
+Q5.Generate an SSH key pair and configure it for two different remote servers.
+Ans. ssh-keygen -t rsa -b 4096 -C "ashish.saxena@cloudkeeper.com"
+     ssh-copy-id sushant@10.1.210.41
+Q6.Find all lines containing “error” in /var/log/syslog and redirect them to errors_found.txt
+Ans.grep "error" /var/log/syslog > ./Documents/test/errors_found.txt
+
+Q7.Find all .conf files in /etc, sort them alphabetically, and save to conf_list.txt.
+Ans.find /etc -name '*.conf' | sort > ./Documents/test/conf_list.txt
+
+Q8.Display the total number of unique shell types listed in /etc/passwd and save to shell_count.txt
+Ans. cut -d: -f7 /etc/passwd | uniq -c > ./Documents/test/shell_count.txt
+     cut -d: -f7 /etc/passwd | uniq |wc -l >> ./Documents/test/shell_count.txt
+
+Q9.Reset the current user password and reboot the system form shell. 
+Ans. sudo passwd ashish-saxena
+     sudo reboot
+
+Q10.Zip the content of your home directory via tar and send it via scp to other person laptop. Unzip the content on other person laptop via tar. 
+Ans. tar -cvf test.tar ./home
+      scp  test.tar sushant@10.1.210.41:./Downloads
+	  tar -xvzf ./Downloads ./Downloads/test.tar
+
+Q11.Install and setup application via apt - mysql, postman, docker, dbeaver
+Ans. sudo apt install mysql-server
+     sudo apt install postman
+	 sudo apt install docker
+	 sudo apt install dbeaver
+
