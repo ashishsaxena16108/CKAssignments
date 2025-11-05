@@ -37,7 +37,7 @@ Ans. tar -cvf test.tar ./home
 
 Q11.Install and setup application via apt - mysql, postman, docker, dbeaver
 Ans. sudo apt install mysql-server
-     sudo apt install postman
-	 sudo apt install docker
-	 sudo apt install dbeaver
+     sudo snap install postman
+	 sudo snap install docker
+	 sudo snap install dbeaver-ce
 
