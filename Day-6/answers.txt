@@ -1,3 +1,4 @@
+Q1.Configure SSH key in github account.
 ashish-saxena@CK-ashishsaxena:~$ ssh-keygen -t ed25519 -C "ashish.saxena@cloudkeeper.com"
 Generating public/private ed25519 key pair.
 Enter file in which to save the key (/home/ashish-saxena/.ssh/id_ed25519): 
@@ -20,8 +21,6 @@ The key's randomart image is:
 |                 |
 +----[SHA256]-----+
 
-
-
 aashish-saxena@CK-ashishsaxena:~$ gh auth login
 ? What account do you want to log into? GitHub.com
 ? What is your preferred protocol for Git operations on this host? SSH
@@ -39,11 +38,13 @@ Opening in existing browser session.
 ✓ Logged in as ashishsaxena16108
 
 
-
+Q2.Create a repository on github account.
 ashish-saxena@CK-ashishsaxena:~$ gh repo create practice --public
 ✓ Created repository ashishsaxena16108/practice on GitHub
   https://github.com/ashishsaxena16108/practice
 ashish-saxena@CK-ashishsaxena:~$ cd ./Documents
+
+Q3.Clone the above repository on your local from github.
 ashish-saxena@CK-ashishsaxena:~/Documents$ git clone git@github.com:ashishsaxena16108/practice.git
 Cloning into 'practice'...
 The authenticity of host 'github.com (20.207.73.82)' can't be established.
@@ -52,15 +53,15 @@ This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
 warning: You appear to have cloned an empty repository.
-ashish-saxena@CK-ashishsaxena:~/Documents$ cd /practice
-bash: cd: /practice: No such file or directory
+
+Q4.Create a new file, say test.txt, in main/master branch. Make some changes to this file and commit the changes.
 ashish-saxena@CK-ashishsaxena:~/Documents$ cd ./practice
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ touch test.txt
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ echo "Hello World!" > test.txt
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ head test.txt
 Hello World!
 
-
+Q5.Create two branches from main/master branch, say f1 and f2.
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git branch f1
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git branch f2
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git branch -a
@@ -70,7 +71,7 @@ ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git branch -a
   remotes/origin/main
 
 
-
+Q6.How can you resolve a merge conflict in Git, provide an example.
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git checkout f1
 Switched to branch 'f1'
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ echo "Hello 1!" >> test.txt
@@ -85,7 +86,6 @@ ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git add test.txt
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git commit
 [f2 39379d0] 	modified:   test.txt
  1 file changed, 1 insertion(+)
-
 
 
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git merge
@@ -124,5 +124,7 @@ Hello 2!
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git add test.txt
 ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git commit
 [main 3fa1426] Merge branches 'f1' and 'f2'
-ashish-saxena@CK-ashishsaxena:~/Documents/practice$ 
+
+
+
 
