@@ -126,5 +126,15 @@ ashish-saxena@CK-ashishsaxena:~/Documents/practice$ git commit
 [main 3fa1426] Merge branches 'f1' and 'f2'
 
 
+Q8.Difference between git init and git clone.
+git init - command to initialize repository,this is the first step for creating repository or initialize an empty repository.
+git clone - command to get files of existing repository on local and starting work on them as main.
 
+Q9.Difference between git branch and git checkout.
+git branch - this command is used to create a new branch,or for getting a list of branches or also usedd to delete branch using -d symbol
+git checkout - this command is used to move to a particular repository and then we can commit only in that branch without changing files on main branch.
+
+Q10.Difference between git fetch and git pull.
+git fetch - this command is used to fetch updated files from remote without changing existing files,it provides a file to see conflicts,which makes them safe from merge conflicts.
+git pull - this command is directly fetch the updated files and override local changes with remote changes,it is very prone to merge conflicts.
 
