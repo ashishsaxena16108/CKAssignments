@@ -1,0 +1,20 @@
+Q1.What is the Java Collections Framework? Explain its advantages.
+Ans.The Java Collections Framework is a part of the Java programming language that provides a set of 
+    classes and interfaces to store and manage groups of objects in an efficient way.
+    The Java Collections Framework has several advantages. One major advantage is that it provides reusable and well-tested data structures, which help save time and reduce programming errors. It also improves the performance of applications since the collection classes are optimized for speed and memory usage. Another advantage is that it supports generic programming, allowing developers to create type-safe collections that prevent runtime type errors. The framework also makes it easy to perform operations such as searching, sorting, and iteration with the help of built-in methods.
+
+Q2.List the differences between Vector, ArrayList, LinkedList, and HashSet.
+Ans.
+Vector
+Vector is a legacy class that is synchronized, which means it is thread-safe but slower compared to ArrayList. It grows its size by doubling when more elements are added.
+
+ArrayList
+ArrayList is not synchronized, so it is faster but not thread-safe. It uses a dynamic array to store elements and grows its size by 50 percent when needed. It is best when we need fast access to elements using indexes.
+
+LinkedList
+LinkedList uses a doubly linked list to store elements. It is better for inserting or deleting elements frequently, but slower for accessing elements because it has to traverse the list from the start.
+
+HashSet
+HashSet is part of the Set interface and does not allow duplicate elements. It uses a hash table to store elements and does not maintain any order of insertion. It is best when we just need to store unique elements and do not care about the order.
+
+
