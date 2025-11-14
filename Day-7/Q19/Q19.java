@@ -44,8 +44,8 @@ class Employee{
         this.salary = salary;
     }
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @Override
+    public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
@@ -59,7 +59,7 @@ class FullTimeEmployee extends Employee{
         setSalary(salary);
     }
 
-    @java.lang.Override
+    @Override
     public void setSalary(int salary) {
         super.setSalary((int)(salary*0.95));
     }

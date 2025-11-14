@@ -26,12 +26,14 @@ class BankAccount{
     void deposit(int money) throws DepositOutOfBoundsException{
         if(money>100000)
             throw new DepositOutOfBoundsException("More than 1 lac deposit is not allowed");
+        if(money>0)
         balance+=money;
         System.out.println("Deposited succesfully");
     }
     void withdraw(int money) throws WithdrawOutOfBoundsException{
         if(money>balance)
             throw new WithdrawOutOfBoundsException("Withdraw more than present balance is not allowed");
+        if(money>0)
         balance-=money;
         System.out.println("Withdraw succesfully");
     }
